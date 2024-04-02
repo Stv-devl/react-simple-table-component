@@ -24,31 +24,3 @@ var List = function List(_ref) {
   })));
 };
 var _default = exports["default"] = List;
-/*
-  const datas = [
-    {
-      firstname: "Emma",
-      lastname: "Wilson",
-      birthday: "2000/12/02",
-    },
-    {
-      firstname: "Oliver",
-      lastname: "Martinez",
-      birthday: "2000/12/02",
-    },
-  ];
-
-  const legend = [
-    {
-      name: "firstname",
-      label: "First name",
-    },
-    {
-      name: "lastname",
-      label: "Last Name",
-    },
-    {
-      name: "birthday",
-      label: "Date of birth",
-    },
-  ];*/
