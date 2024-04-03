@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dropdown = ({ labelText, name, value, setEntrieValue }) => {
+const Dropdown = ({ labelText, name, value, handleChange }) => {
   const optionChoice = ["10", "25", "50", "100"];
 
   return (
@@ -10,7 +10,7 @@ const Dropdown = ({ labelText, name, value, setEntrieValue }) => {
         id={name}
         name={name}
         value={value}
-        onChange={(e) => setEntrieValue(e.target.value)}
+        onChange={(e) => handleChange({ entries: e.target.value })}
       >
         {optionChoice.map((option, index) => (
           <option key={`${option}${index}`} value={option}>

@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../input/Input";
 
-const Search = () => {
-  const [inputValue, setInputValue] = useState("");
-
+const Search = ({ filterData, handleChange }) => {
   return (
     <div className="search-bar-container">
       <Input
         name="search"
         labelText="Search"
-        setInputValue={setInputValue}
-        value={inputValue}
+        value={filterData.searchbar}
+        handleChange={handleChange}
       />
     </div>
   );

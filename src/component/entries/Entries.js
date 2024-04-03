@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "../dropdown/Dropdown";
 
-const Entries = () => {
-  const [entrieValue, setEntrieValue] = useState("10");
-
+const Entries = ({ filterData, handleChange }) => {
   return (
     <div className="entry-container">
       <div className="dropdown">
         <Dropdown
           labelText="Show"
           name="entries"
-          value={entrieValue}
-          setEntrieValue={setEntrieValue}
+          value={filterData.entries}
+          handleChange={handleChange}
         />
       </div>
       <span>entries</span>
