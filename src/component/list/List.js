@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import FilterTopOrUp from "../filterTopOrUp/FilterTopOrUp";
 
-const List = ({ legend, datas, filterData, handleChange }) => {
+const List = ({ legend, datas, filterTools, handleChange }) => {
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(null);
 
   const handleSelectFilter = (index) => {
     if (selectedFilterIndex === index) {
-      handleChange({ updown: !filterData.updown });
+      handleChange({ updown: !filterTools.updown });
     } else {
       setSelectedFilterIndex(index);
-      handleChange({ updownselected: true, updown: true });
+      handleChange({
+        updownselected: true,
+        updown: true,
+        legend: legend.map((legend) => legend.name)[index],
+      });
     }
   };
 
@@ -22,7 +26,7 @@ const List = ({ legend, datas, filterData, handleChange }) => {
               {item.label}
               <FilterTopOrUp
                 isSelected={selectedFilterIndex === index}
-                upDownValue={filterData.updown}
+                upDownValue={filterTools.updown}
                 onSelect={handleSelectFilter}
                 index={index}
               />

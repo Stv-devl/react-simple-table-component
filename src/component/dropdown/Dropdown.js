@@ -1,7 +1,7 @@
 import React from "react";
 
 const Dropdown = ({ labelText, name, value, handleChange }) => {
-  const optionChoice = ["10", "25", "50", "100"];
+  const optionChoice = [10, 25, 50, 100];
 
   return (
     <div className="input-wrapper">

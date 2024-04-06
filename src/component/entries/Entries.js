@@ -1,14 +1,14 @@
 import React from "react";
 import Dropdown from "../dropdown/Dropdown";
 
-const Entries = ({ filterData, handleChange }) => {
+const Entries = ({ filterTools, handleChange }) => {
   return (
     <div className="entry-container">
       <div className="dropdown">
         <Dropdown
           labelText="Show"
           name="entries"
-          value={filterData.entries}
+          value={filterTools.entries}
           handleChange={handleChange}
         />
       </div>

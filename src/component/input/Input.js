@@ -1,3 +1,5 @@
+import React from "react";
+
 const Input = ({ name, labelText, value, handleChange }) => {
   return (
     <div className="input-wrapper">
