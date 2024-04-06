@@ -1,25 +1,25 @@
 import React, { useMemo, useState } from "react";
 
-const useManageFilter = (datas, currentPage) => {
+const useManageFilter = ({ datas, currentPage }) => {
   const [filterTools, setFilterTools] = useState({
     updownselected: null,
     updown: null,
     legend: null,
     searchbar: "",
     entries: 10,
-    currentpage: 1,
   });
 
   const filteredData = useMemo(() => {
     let filtered = datas.slice(0, filterTools.entries);
 
+    console.log(currentPage);
     filtered = datas
       .filter((el) =>
         Object.values(el).some((value) =>
           value.toLowerCase().includes(filterTools.searchbar.toLowerCase())
         )
       )
-      .slice(0, filterTools.entries);
+      .slice(currentPage * 10, currentPage * 10 + filterTools.entries);
     if (filterTools.legend) {
       const { legend, updown } = filterTools;
       const direction = updown ? 1 : -1;
@@ -28,7 +28,7 @@ const useManageFilter = (datas, currentPage) => {
       });
     }
     return filtered;
-  }, [datas, filterTools]);
+  }, [datas, filterTools, currentPage]);
 
   const handleChange = (updates) => {
     setFilterTools((prev) => ({ ...prev, ...updates }));

@@ -9,10 +9,10 @@ import useManageFilter from "./hook/useManageFilter";
 const Table = ({ datas, legend }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { filterTools, filteredData, handleChange } = useManageFilter(
+  const { filterTools, filteredData, handleChange } = useManageFilter({
     datas,
-    currentPage
-  );
+    currentPage,
+  });
 
   //set props of pagination,
   const pageNumber = Math.ceil(datas.length / filterTools.entries); //number of page
