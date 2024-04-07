@@ -6,7 +6,7 @@ import Search from "./component/search/Search";
 import ShowEntries from "./component/showentries/ShowEntries";
 import useManageFilter from "./hook/useManageFilter";
 
-const Table = ({ datas, legend }) => {
+const Table = ({ datas, legend, maxButtons, middleButtons }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { filterTools, filteredData, handleChange } = useManageFilter({
@@ -14,11 +14,8 @@ const Table = ({ datas, legend }) => {
     currentPage,
   });
 
-  //set props of pagination,
+  //send current page to filter hook
   const pageNumber = Math.ceil(datas.length / filterTools.entries); //number of page
-  const maxButtons = 6; //maxButton when we are in left or right : 6 = [1, 2, 3, 4, 5, 6 ...20]
-  const middleButtons = 3; //button in the midle 3 = [1, ..., 7, 8, 9, ..., 20]
-
   const changePage = useCallback((newpage) => {
     setCurrentPage(newpage);
   }, []);

@@ -10,16 +10,17 @@ const useManageFilter = ({ datas, currentPage }) => {
   });
 
   const filteredData = useMemo(() => {
-    let filtered = datas.slice(0, filterTools.entries);
-
-    console.log(currentPage);
+    let filtered;
     filtered = datas
       .filter((el) =>
         Object.values(el).some((value) =>
           value.toLowerCase().includes(filterTools.searchbar.toLowerCase())
         )
       )
-      .slice(currentPage * 10, currentPage * 10 + filterTools.entries);
+      .slice(
+        currentPage * filterTools.entries - filterTools.entries,
+        currentPage * filterTools.entries
+      );
     if (filterTools.legend) {
       const { legend, updown } = filterTools;
       const direction = updown ? 1 : -1;
@@ -33,6 +34,8 @@ const useManageFilter = ({ datas, currentPage }) => {
   const handleChange = (updates) => {
     setFilterTools((prev) => ({ ...prev, ...updates }));
   };
+
+  console.log(filteredData);
 
   return { filterTools, filteredData, handleChange };
 };
