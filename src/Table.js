@@ -9,18 +9,18 @@ import useManageFilter from "./hook/useManageFilter";
 const Table = ({ datas, legend }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { filterTools, filteredData, handleChange } = useManageFilter({
-    datas,
-    currentPage,
-    setCurrentPage,
-  });
+  const { filterTools, filteredData, pageNumber, handleChange } =
+    useManageFilter({
+      datas,
+      currentPage,
+      setCurrentPage,
+    });
 
-  //sex pagination number of button
+  //set pagination number of button
   let maxButtons = 5;
   let middleButtons = 3;
 
   //send current page to filter hook
-  const pageNumber = Math.ceil(datas.length / filterTools.entries); //number of page
   const changePage = useCallback((newpage) => {
     setCurrentPage(newpage);
   }, []);

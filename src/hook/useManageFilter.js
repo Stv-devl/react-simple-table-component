@@ -8,6 +8,10 @@ const useManageFilter = ({ datas, currentPage, setCurrentPage }) => {
     searchbar: "",
     entries: 10,
   });
+  //set the number of pages
+  const [pageNumber, setPageNumber] = useState(
+    Math.ceil(datas.length / filterTools.entries)
+  );
 
   //set current page at 1 when whe use searchbar or change entries
   useEffect(() => {
@@ -20,6 +24,9 @@ const useManageFilter = ({ datas, currentPage, setCurrentPage }) => {
         value.toLowerCase().includes(filterTools.searchbar.toLowerCase())
       )
     );
+    //change the number of page when we use search bar
+    setPageNumber(Math.ceil(filtered.length / filterTools.entries));
+
     if (filterTools.legend) {
       const { legend, updown } = filterTools;
       const direction = updown ? 1 : -1;
@@ -38,7 +45,7 @@ const useManageFilter = ({ datas, currentPage, setCurrentPage }) => {
     setFilterTools((prev) => ({ ...prev, ...updates }));
   };
 
-  return { filterTools, filteredData, handleChange };
+  return { filterTools, filteredData, pageNumber, handleChange };
 };
 
 export default useManageFilter;
