@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
-const useManageFilter = ({ datas, currentPage }) => {
+const useManageFilter = ({ datas, currentPage, setCurrentPage }) => {
   const [filterTools, setFilterTools] = useState({
     updownselected: null,
     updown: null,
@@ -9,18 +9,17 @@ const useManageFilter = ({ datas, currentPage }) => {
     entries: 10,
   });
 
+  //set current page at 1 when whe use searchbar or change entries
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterTools.searchbar, filterTools.entries, setCurrentPage]);
+
   const filteredData = useMemo(() => {
-    let filtered;
-    filtered = datas
-      .filter((el) =>
-        Object.values(el).some((value) =>
-          value.toLowerCase().includes(filterTools.searchbar.toLowerCase())
-        )
+    let filtered = datas.filter((el) =>
+      Object.values(el).some((value) =>
+        value.toLowerCase().includes(filterTools.searchbar.toLowerCase())
       )
-      .slice(
-        currentPage * filterTools.entries - filterTools.entries,
-        currentPage * filterTools.entries
-      );
+    );
     if (filterTools.legend) {
       const { legend, updown } = filterTools;
       const direction = updown ? 1 : -1;
@@ -28,14 +27,16 @@ const useManageFilter = ({ datas, currentPage }) => {
         return a[legend].localeCompare(b[legend]) * direction;
       });
     }
+    const startIndex = (currentPage - 1) * filterTools.entries;
+    const endIndex = currentPage * filterTools.entries;
+    filtered = filtered.slice(startIndex, endIndex);
+
     return filtered;
   }, [datas, filterTools, currentPage]);
 
   const handleChange = (updates) => {
     setFilterTools((prev) => ({ ...prev, ...updates }));
   };
-
-  console.log(filteredData);
 
   return { filterTools, filteredData, handleChange };
 };

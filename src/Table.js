@@ -6,13 +6,18 @@ import Search from "./component/search/Search";
 import ShowEntries from "./component/showentries/ShowEntries";
 import useManageFilter from "./hook/useManageFilter";
 
-const Table = ({ datas, legend, maxButtons, middleButtons }) => {
+const Table = ({ datas, legend }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { filterTools, filteredData, handleChange } = useManageFilter({
     datas,
     currentPage,
+    setCurrentPage,
   });
+
+  //sex pagination number of button
+  let maxButtons = 5;
+  let middleButtons = 3;
 
   //send current page to filter hook
   const pageNumber = Math.ceil(datas.length / filterTools.entries); //number of page

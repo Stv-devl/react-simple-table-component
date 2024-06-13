@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 const usePagination = ({
   pageNumber,
@@ -18,7 +18,6 @@ const usePagination = ({
 
     if (pageNumber <= maxButtons) {
       pageArray = Array.from({ length: pageNumber - 2 }, (_, i) => i + 2);
-      console.log(pageArray);
     } else if (currentPage <= 3) {
       pageArray = [...getArray(maxButtons - 1, 2), dots];
     } else if (currentPage >= 4 && currentPage <= pageNumber - 3) {
