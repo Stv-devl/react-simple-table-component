@@ -7,6 +7,14 @@ import ShowEntries from "./component/showentries/ShowEntries";
 import useManageFilter from "./hook/useManageFilter";
 import styles from "./styles/index.module.scss";
 
+/**
+ * Table component
+ * Renders a table with pagination, search, and filter functionalities.
+ * @param {Object[]} datas - The data to be displayed in the table.
+ * @param {Object} legend - The legend for the table columns.
+ * @returns {JSX.Element} - The Table component.
+ */
+
 const Table = ({ datas, legend }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -21,7 +29,10 @@ const Table = ({ datas, legend }) => {
   let maxButtons = 5;
   let middleButtons = 3;
 
-  //send current page to filter hook
+  /**
+   * Changes the current page and updates the state.
+   * @param {number} newPage - The new page number to set.
+   */
   const changePage = useCallback((newpage) => {
     setCurrentPage(newpage);
   }, []);

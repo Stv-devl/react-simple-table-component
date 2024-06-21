@@ -1,5 +1,14 @@
 import React, { useMemo } from "react";
 
+/**
+ * Custom hook for managing pagination logic.
+ * @param {number} pageNumber - The total number of pages.
+ * @param {number} maxButtons - The maximum number of pagination buttons to display.
+ * @param {number} middleButtons - The number of pagination buttons to display in the middle section.
+ * @param {number} currentPage - The current active page number.
+ * @returns {Object} - The pagination array.
+ */
+
 const usePagination = ({
   pageNumber,
   maxButtons,

@@ -1,6 +1,16 @@
 import React from "react";
 import styles from "../../styles/index.module.scss";
 
+/**
+ * Dropdown component
+ * Renders a dropdown for selecting the number of entries to display.
+ * @param {string} labelText - The label text for the dropdown.
+ * @param {string} name - The name of the dropdown.
+ * @param {string|number} value - The current selected value of the dropdown.
+ * @param {function} handleChange - The function to handle changes to the dropdown selection.
+ * @returns {JSX.Element} - The Dropdown component.
+ */
+
 const Dropdown = ({ labelText, name, value, handleChange }) => {
   const optionChoice = [10, 25, 50, 100];
 

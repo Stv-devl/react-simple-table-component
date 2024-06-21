@@ -2,6 +2,17 @@ import React from "react";
 import usePagination from "../../hook/usePagination";
 import styles from "../../styles/index.module.scss";
 
+/**
+ * Paging component
+ * Renders pagination controls for navigating through pages of data.
+ * @param {number} pageNumber - The total number of pages.
+ * @param {number} currentPage - The current active page.
+ * @param {number} maxButtons - The maximum number of pagination buttons to display.
+ * @param {number} middleButtons - The number of pagination buttons to display in the middle section.
+ * @param {function} changePage - The function to handle changing the page.
+ * @returns {JSX.Element} - The Paging component.
+ */
+
 const Paging = ({
   pageNumber,
   currentPage,
