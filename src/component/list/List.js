@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FilterTopOrUp from "../filterTopOrUp/FilterTopOrUp";
+import styles from "../../styles/index.module.scss";
 
 const List = ({ legend, datas, filterTools, handleChange }) => {
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(null);
@@ -22,14 +23,16 @@ const List = ({ legend, datas, filterTools, handleChange }) => {
       <thead>
         <tr>
           {legend.map((item, index) => (
-            <th key={index}>
-              {item.label}
-              <FilterTopOrUp
-                isSelected={selectedFilterIndex === index}
-                upDownValue={filterTools.updown}
-                onSelect={handleSelectFilter}
-                index={index}
-              />
+            <th className={styles.legend} key={index}>
+              <div className={styles.thwrapper}>
+                <p>{item.label}</p>
+                <FilterTopOrUp
+                  isSelected={selectedFilterIndex === index}
+                  upDownValue={filterTools.updown}
+                  onSelect={handleSelectFilter}
+                  index={index}
+                />
+              </div>
             </th>
           ))}
         </tr>

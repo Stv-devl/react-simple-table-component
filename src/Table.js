@@ -5,6 +5,7 @@ import Paging from "./component/paging/Paging";
 import Search from "./component/search/Search";
 import ShowEntries from "./component/showentries/ShowEntries";
 import useManageFilter from "./hook/useManageFilter";
+import styles from "./styles/index.module.scss";
 
 const Table = ({ datas, legend }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,9 +27,9 @@ const Table = ({ datas, legend }) => {
   }, []);
 
   return (
-    <div className="table-container">
-      <h1>Current Employees</h1>
-      <div className="table-header">
+    <div className={styles.tableContainer}>
+      <p className={styles.tableTitle}>Current Employees :</p>
+      <div className={styles.tableHeader}>
         <Entries filterTools={filterTools} handleChange={handleChange} />
         <Search filterTools={filterTools} handleChange={handleChange} />
       </div>
@@ -38,8 +39,12 @@ const Table = ({ datas, legend }) => {
         filterTools={filterTools}
         handleChange={handleChange}
       />
-      <div className="table-footer">
-        <ShowEntries datas={datas} filterTools={filterTools} />
+      <div className={styles.tableFooter}>
+        <ShowEntries
+          totalEntries={datas.length}
+          pageNumber={currentPage}
+          entriesPerPage={filterTools.entries}
+        />
         <Paging
           pageNumber={pageNumber}
           currentPage={currentPage}

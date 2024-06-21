@@ -1,0 +1,60 @@
+/****************************setting fonts***************************/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500&display=swap");
+
+/**************************setting text***************************/
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.tableContainer {
+  font-size: 16px;
+  font-weight: 500;
+  color: $textBlack;
+
+  @media screen and (max-width: $breakup) {
+    font-size: 14px;
+  }
+}
+
+.tableTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: $textlightGreen;
+
+  @media screen and (max-width: $breakup) {
+    font-size: 20px;
+  }
+}
+
+.legend {
+  font-size: 17px;
+  font-weight: 500;
+  color: $white;
+
+  @media screen and (max-width: $breakup) {
+    font-size: 14px;
+  }
+}
+
+.btnpaging {
+  font-size: 15px;
+  font-weight: 500;
+  color: $white;
+
+  @media screen and (max-width: $breakup) {
+    font-size: 13px;
+  }
+}
+
+.dropdown,
+.forminput,
+.forminput::placeholder {
+  font-size: 16px;
+  color: $grey;
+
+  @media screen and (max-width: $breakup) {
+    font-size: 13px;
+  }
+}

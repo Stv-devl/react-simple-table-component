@@ -6,13 +6,12 @@ const Entries = ({ filterTools, handleChange }) => {
     <div className="entry-container">
       <div className="dropdown">
         <Dropdown
-          labelText="Show"
+          labelText="Show :"
           name="entries"
           value={filterTools.entries}
           handleChange={handleChange}
         />
       </div>
-      <span>entries</span>
     </div>
   );
 };

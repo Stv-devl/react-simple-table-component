@@ -1,0 +1,31 @@
+.tableContainer {
+  max-width: 1400px;
+  width: 90%;
+  overflow-x: auto;
+  padding: 0 25px;
+
+  @media screen and (max-width: $breakup) {
+    padding: 0 10px;
+    width: 98%;
+  }
+
+  .tableTitle {
+    margin: 15px 0 30px 0;
+    text-align: center;
+
+    @media screen and (max-width: $breakup) {
+      margin: 0px 0 15px 0;
+    }
+  }
+
+  .tableHeader {
+    @include direction-row;
+    gap: 50px;
+    margin: 10px 0;
+
+    @media screen and (max-width: $breakup) {
+      @include direction-column-flex-start;
+      gap: 15px;
+    }
+  }
+}

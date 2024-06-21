@@ -1,10 +1,14 @@
 import React from "react";
 
-const ShowEntries = ({ datas, filterTools }) => {
+const ShowEntries = ({ totalEntries, pageNumber, entriesPerPage }) => {
+  const startEntry = (pageNumber - 1) * entriesPerPage + 1;
+  let endEntry = pageNumber * entriesPerPage;
+  endEntry = endEntry > totalEntries ? totalEntries : endEntry;
+
   return (
     <div className="showing-entries">
-      showing 1 to <span className="entries-number">{filterTools.entries}</span>{" "}
-      of <span className="total-entries">{datas.length}</span> entries
+      Showing {startEntry} to <span className="entries-number">{endEntry}</span>{" "}
+      of <span className="total-entries">{totalEntries}</span> entries
     </div>
   );
 };

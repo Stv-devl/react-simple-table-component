@@ -1,0 +1,7 @@
+.inputwrapper {
+  @include center-row;
+  gap: 10px;
+  .forminput {
+    @include input03;
+  }
+}

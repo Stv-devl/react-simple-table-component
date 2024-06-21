@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "../../styles/index.module.scss";
 
-const Input = ({ name, labelText, value, handleChange }) => {
+const Input = ({ name, labelText, value, handleChange, placeholder }) => {
   return (
-    <div className="input-wrapper">
+    <div className={styles.inputwrapper}>
       <label htmlFor={name}>{labelText}</label>
       <input
         type="text"
@@ -10,6 +11,8 @@ const Input = ({ name, labelText, value, handleChange }) => {
         name={name}
         value={value}
         onChange={(e) => handleChange({ searchbar: e.target.value })}
+        placeholder={placeholder}
+        className={styles.forminput}
       />
     </div>
   );

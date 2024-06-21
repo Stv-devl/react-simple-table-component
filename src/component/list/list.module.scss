@@ -1,0 +1,80 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border-radius: 10px;
+  @include shadow;
+
+  th,
+  td {
+    border-bottom: 1px solid #ddd;
+    padding: 6px 8px;
+
+    @media screen and (max-width: $breakup) {
+      padding: 4px 6px;
+    }
+  }
+
+  thead {
+    background-color: $backgroundGreen;
+    height: 50px;
+
+    border-radius: 10px 10px 0 0;
+
+    th:first-child {
+      border-top-left-radius: 10px;
+    }
+    th:last-child {
+      border-top-right-radius: 10px;
+    }
+
+    .thwrapper {
+      @include center-row;
+
+      .iconefilter {
+        position: relative;
+        cursor: pointer;
+        width: 20px;
+        height: 18px;
+
+        svg {
+          position: absolute;
+        }
+
+        .iconup {
+          top: 0;
+          @media screen and (max-width: $breakup) {
+            left: 2px;
+          }
+        }
+        .icondown {
+          top: 4px;
+          @media screen and (max-width: $breakup) {
+            left: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr:nth-child(even) {
+      background-color: $backgroundlightGreen;
+    }
+
+    tr:nth-child(odd) {
+      background-color: $white;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+
+      &:first-child {
+        border-bottom-left-radius: 10px;
+      }
+      &:last-child {
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}

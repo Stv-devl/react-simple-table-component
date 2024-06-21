@@ -1,0 +1,7 @@
+.tableinputwrapper {
+  @include center-row;
+  gap: 10px;
+  .dropdown {
+    @include input02;
+  }
+}

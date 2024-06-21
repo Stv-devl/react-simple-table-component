@@ -1,0 +1,28 @@
+.pagingcontainer {
+  @include center-row;
+  gap: 3px;
+  margin: 10px 0;
+  .btnpaging {
+    @include center-row;
+    gap: 10px;
+    border: none;
+    background-color: $backgroundGreen;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    color: $white;
+    @include shadow02;
+
+    &:hover {
+      background-color: $backgroundDarkGreen;
+    }
+
+    @media screen and (max-width: $breakup) {
+      padding: 3px 5px;
+    }
+  }
+  .active {
+    background-color: $backgroundDarkGreen;
+  }
+}

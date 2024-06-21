@@ -19,11 +19,14 @@ const usePagination = ({
     if (pageNumber <= maxButtons) {
       pageArray = Array.from({ length: pageNumber - 2 }, (_, i) => i + 2);
     } else if (currentPage <= 3) {
-      pageArray = [...getArray(maxButtons - 1, 2), dots];
-    } else if (currentPage >= 4 && currentPage <= pageNumber - 3) {
+      pageArray = [...getArray(maxButtons - 2, 2), dots];
+    } else if (currentPage > 3 && currentPage <= pageNumber - 3) {
       pageArray = [dots, ...getArray(middleButtons, currentPage - 1), dots];
-    } else if (currentPage >= pageNumber - 3) {
-      pageArray = [dots, ...getArray(maxButtons - 2, pageNumber - 4)];
+    } else if (currentPage > pageNumber - 3) {
+      pageArray = [
+        dots,
+        ...getArray(maxButtons - 2, pageNumber - maxButtons + 2),
+      ];
     }
 
     initialArray.splice(1, 0, ...pageArray);

@@ -6,9 +6,10 @@ const Search = ({ filterTools, handleChange }) => {
     <div className="search-bar-container">
       <Input
         name="search"
-        labelText="Search"
+        labelText="Search :"
         value={filterTools.searchbar}
         handleChange={handleChange}
+        placeholder="Type your search"
       />
     </div>
   );
