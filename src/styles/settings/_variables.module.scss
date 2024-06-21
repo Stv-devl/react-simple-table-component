@@ -21,5 +21,13 @@ $backgroundDarkGreen: #5cc36c;
 $backgroundGreen: #72d683;
 $backgroundlightGreen: #c2fbcc;
 
+//component default color
+:root {
+  --theadcolor: #909090;
+  --firstfieldcolor: #ffffff;
+  --secondfieldcolor: #cfcfcf;
+  --pagingcolor: #909090;
+  --checkedbtn: #545353;
+}
 /*************************breakup**************************/
 $breakup: 636px;

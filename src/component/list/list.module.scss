@@ -16,9 +16,8 @@ table {
   }
 
   thead {
-    background-color: $backgroundGreen;
+    background-color: var(--theadcolor);
     height: 50px;
-
     border-radius: 10px 10px 0 0;
 
     th:first-child {
@@ -59,11 +58,11 @@ table {
 
   tbody {
     tr:nth-child(even) {
-      background-color: $backgroundlightGreen;
+      background-color: var(--secondfieldcolor);
     }
 
     tr:nth-child(odd) {
-      background-color: $white;
+      background-color: var(--firstfieldcolor);
     }
 
     tr:last-child td {

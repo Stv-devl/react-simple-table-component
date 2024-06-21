@@ -12,8 +12,22 @@ import styles from "../../styles/index.module.scss";
  * @returns {JSX.Element} - The List component.
  */
 
-const List = ({ legend, datas, filterTools, handleChange }) => {
+const List = ({
+  legend,
+  datas,
+  filterTools,
+  handleChange,
+  theadColor,
+  firstFieldColor,
+  secondFieldColor,
+}) => {
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(null);
+
+  const style = {
+    "--theadcolor": theadColor || "#3498db",
+    "-- firstfieldcolor": firstFieldColor || "#ffffff",
+    "--secondfieldcolor": secondFieldColor || "#cfcfcf",
+  };
 
   /**
    * Handles selection of a column for sorting.
@@ -34,7 +48,7 @@ const List = ({ legend, datas, filterTools, handleChange }) => {
 
   return (
     <table>
-      <thead>
+      <thead style={style}>
         <tr>
           {legend.map((item, index) => (
             <th className={styles.legend} key={index}>
@@ -53,7 +67,7 @@ const List = ({ legend, datas, filterTools, handleChange }) => {
       </thead>
       <tbody>
         {datas.map((worker, index) => (
-          <tr key={index}>
+          <tr style={style} key={index}>
             {legend.map((item, idx) => (
               <td key={idx}>{worker[item.name]}</td>
             ))}

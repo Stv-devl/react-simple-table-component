@@ -15,7 +15,15 @@ import styles from "./styles/index.module.scss";
  * @returns {JSX.Element} - The Table component.
  */
 
-const Table = ({ datas, legend }) => {
+const Table = ({
+  datas,
+  legend,
+  theadColor,
+  firstFieldColor,
+  secondFieldColor,
+  pagingColor,
+  checkedBtn,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { filterTools, filteredData, pageNumber, handleChange } =
@@ -49,6 +57,9 @@ const Table = ({ datas, legend }) => {
         legend={legend}
         filterTools={filterTools}
         handleChange={handleChange}
+        theadColor={theadColor}
+        firstFieldColor={firstFieldColor}
+        secondFieldColor={secondFieldColor}
       />
       <div className={styles.tableFooter}>
         <ShowEntries
@@ -62,6 +73,8 @@ const Table = ({ datas, legend }) => {
           changePage={changePage}
           maxButtons={maxButtons}
           middleButtons={middleButtons}
+          pagingColor={pagingColor}
+          checkedBtn={checkedBtn}
         />
       </div>
     </div>
