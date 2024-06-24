@@ -11,11 +11,22 @@ import styles from "../../styles/index.module.scss";
  * @returns {JSX.Element} - The Dropdown component.
  */
 
-const Dropdown = ({ labelText, name, value, handleChange }) => {
-  const optionChoice = [10, 25, 50, 100];
+const Dropdown = ({
+  labelText,
+  name,
+  entriesArray,
+  value,
+  handleChange,
+  entriesInput,
+}) => {
+  const defaultEntries = [10, 25, 50, 100];
+  const options = entriesArray || defaultEntries;
 
   return (
-    <div className={styles.tableinputwrapper}>
+    <div
+      style={{ "--entriesInput": entriesInput }}
+      className={styles.tableinputwrapper}
+    >
       <label className="table-label" htmlFor={name}>
         {labelText}
       </label>
@@ -26,7 +37,7 @@ const Dropdown = ({ labelText, name, value, handleChange }) => {
         onChange={(e) => handleChange({ entries: e.target.value })}
         className={styles.dropdown}
       >
-        {optionChoice.map((option, index) => (
+        {options.map((option, index) => (
           <option key={`${option}${index}`} value={option}>
             {option}
           </option>

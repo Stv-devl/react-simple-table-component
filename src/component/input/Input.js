@@ -12,9 +12,19 @@ import styles from "../../styles/index.module.scss";
  * @returns {JSX.Element} - The Input component.
  */
 
-const Input = ({ name, labelText, value, handleChange, placeholder }) => {
+const Input = ({
+  name,
+  labelText,
+  value,
+  handleChange,
+  placeholder,
+  searchInput,
+}) => {
   return (
-    <div className={styles.inputwrapper}>
+    <div
+      style={{ "--searchInput": searchInput }}
+      className={styles.inputwrapper}
+    >
       <label htmlFor={name}>{labelText}</label>
       <input
         type="text"

@@ -9,7 +9,7 @@ import Input from "../input/Input";
  * @returns {JSX.Element} - The Search component.
  */
 
-const Search = ({ filterTools, handleChange }) => {
+const Search = ({ filterTools, handleChange, searchInput }) => {
   return (
     <div className="search-bar-container">
       <Input
@@ -18,6 +18,7 @@ const Search = ({ filterTools, handleChange }) => {
         value={filterTools.searchbar}
         handleChange={handleChange}
         placeholder="Type your search"
+        searchInput={searchInput}
       />
     </div>
   );

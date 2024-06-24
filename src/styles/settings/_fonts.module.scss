@@ -1,17 +1,17 @@
 /****************************setting fonts***************************/
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 
 /**************************setting text***************************/
 
-* {
-  font-family: "Roboto", sans-serif;
+.tableContainer body {
+  font-family: var(--fontSetting) !important;
 }
 
 .tableContainer {
-  font-size: 16px;
-  font-weight: 500;
-  color: $textBlack;
+  font-family: var(--fontSetting);
+  font-size: var(--fontSizeText);
+  font-weight: var(--fontWeightText);
 
   @media screen and (max-width: $breakup) {
     font-size: 14px;
@@ -28,10 +28,10 @@
   }
 }
 
-.legend {
-  font-size: 17px;
-  font-weight: 500;
-  color: $white;
+.header {
+  font-size: var(--fontSizeThead);
+  font-weight: var(--fontWeightThead);
+  color: var(--fontColorThead);
 
   @media screen and (max-width: $breakup) {
     font-size: 14px;
@@ -39,9 +39,10 @@
 }
 
 .btnpaging {
-  font-size: 15px;
-  font-weight: 500;
-  color: $white;
+  font-family: var(--fontSetting, "Arial, sans-serif");
+  font-size: var(--fontSizePaging);
+  font-weight: var(--fontWeightPaging);
+  color: var(--fontColorPaging);
 
   @media screen and (max-width: $breakup) {
     font-size: 13px;

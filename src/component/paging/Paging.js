@@ -21,6 +21,9 @@ const Paging = ({
   changePage,
   pagingColor,
   checkedBtn,
+  fontSizePaging,
+  fontColorPaging,
+  fontWeightPaging,
 }) => {
   const { pagination } = usePagination({
     pageNumber,
@@ -30,14 +33,16 @@ const Paging = ({
   });
 
   const style = {
-    "--pagingcolor": pagingColor || "#3498db",
-    "--checkedbtn": checkedBtn || "##545353",
+    "--pagingcolor": pagingColor,
+    "--checkedbtn": checkedBtn,
+    "--fontSizePaging": fontSizePaging,
+    "--fontColorPaging": fontColorPaging,
+    "--fontWeightPaging": fontWeightPaging,
   };
   return (
-    <div className={styles.pagingcontainer}>
+    <div style={style} className={styles.pagingcontainer}>
       {pageNumber > 3 ? (
         <button
-          style={style}
           className={styles.btnpaging}
           onClick={() => changePage(Math.max(1, currentPage - 1))}
         >
@@ -48,7 +53,6 @@ const Paging = ({
         {pagination && pageNumber > 1
           ? pagination.map((page, index) => (
               <button
-                style={style}
                 className={`${styles.btnpaging} ${
                   page === currentPage ? styles.active : ""
                 }`}
@@ -63,7 +67,6 @@ const Paging = ({
       </>
       {pageNumber > 3 ? (
         <button
-          style={style}
           className={styles.btnpaging}
           onClick={() => changePage(Math.min(pageNumber, currentPage + 1))}
         >

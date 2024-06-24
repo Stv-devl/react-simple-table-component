@@ -8,7 +8,7 @@ table {
   th,
   td {
     border-bottom: 1px solid #ddd;
-    padding: 6px 8px;
+    padding: var(--tdPadding);
 
     @media screen and (max-width: $breakup) {
       padding: 4px 6px;

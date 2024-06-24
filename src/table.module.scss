@@ -1,6 +1,6 @@
 .tableContainer {
   max-width: 1400px;
-  width: 90%;
+  width: var(--arrayWidth);
   overflow-x: auto;
   padding: 0 25px;
 

@@ -8,15 +8,17 @@ import Dropdown from "../dropdown/Dropdown";
  * @param {function} handleChange - The function to handle changes to the dropdown selection.
  * @returns {JSX.Element} - The Entries component.
  */
-const Entries = ({ filterTools, handleChange }) => {
+const Entries = ({ filterTools, entriesArray, handleChange, entriesInput }) => {
   return (
     <div className="entry-container">
       <div className="dropdown">
         <Dropdown
           labelText="Show :"
           name="entries"
+          entriesArray={entriesArray}
           value={filterTools.entries}
           handleChange={handleChange}
+          entriesInput={entriesInput}
         />
       </div>
     </div>

@@ -13,20 +13,28 @@ import styles from "../../styles/index.module.scss";
  */
 
 const List = ({
-  legend,
+  arrayHeader,
   datas,
   filterTools,
   handleChange,
-  theadColor,
+  theadBackgroundColor,
+  fontSizeThead,
+  fontWeightThead,
+  fontColorThead,
   firstFieldColor,
   secondFieldColor,
+  tdPadding,
 }) => {
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(null);
 
   const style = {
-    "--theadcolor": theadColor || "#3498db",
-    "-- firstfieldcolor": firstFieldColor || "#ffffff",
-    "--secondfieldcolor": secondFieldColor || "#cfcfcf",
+    "--theadcolor": theadBackgroundColor,
+    "--firstfieldcolor": firstFieldColor,
+    "--secondfieldcolor": secondFieldColor,
+    "--fontSizeThead": fontSizeThead,
+    "--fontWeightThead": fontWeightThead,
+    "--fontColorThead": fontColorThead,
+    "--tdPadding": tdPadding,
   };
 
   /**
@@ -41,7 +49,7 @@ const List = ({
       handleChange({
         updownselected: true,
         updown: true,
-        legend: legend.map((legend) => legend.name)[index],
+        header: arrayHeader.map((header) => header.name)[index],
       });
     }
   };
@@ -50,8 +58,8 @@ const List = ({
     <table>
       <thead style={style}>
         <tr>
-          {legend.map((item, index) => (
-            <th className={styles.legend} key={index}>
+          {arrayHeader.map((item, index) => (
+            <th className={styles.header} key={index}>
               <div className={styles.thwrapper}>
                 <p>{item.label}</p>
                 <FilterTopOrUp
@@ -68,7 +76,7 @@ const List = ({
       <tbody>
         {datas.map((worker, index) => (
           <tr style={style} key={index}>
-            {legend.map((item, idx) => (
+            {arrayHeader.map((item, idx) => (
               <td key={idx}>{worker[item.name]}</td>
             ))}
           </tr>
