@@ -51,7 +51,7 @@ const Table = ({
 
   // Get font link from user
   useEffect(() => {
-    if (fontUrl) {
+    if (typeof document !== "undefined" && fontUrl) {
       const link = document.createElement("link");
       link.href = fontUrl;
       link.rel = "stylesheet";

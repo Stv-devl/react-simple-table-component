@@ -17,6 +17,9 @@
 
 The componant is a React component that renders a simple table. Build for the [HRnet app](https://github.com/Stv-devl/hrnet-jquery-to-react), an exercice from [Openclassroom](https://openclassrooms.com/) for the bachelor level class "Application Developer - JavaScript React"
 
+- The github of the componant can be find [here](https://github.com/Stv-devl/react-simple-table-component)
+- The NPM of the componant can be find [here](https://www.npmjs.com/package/react-simple-table-component-v1)
+
 ### Built-with
 
 - [React](https://reactjs.org/) - JS library
@@ -60,34 +63,34 @@ export default Example;
 
 ### Props
 
-| Name               | Type   | Default              | Description                                           |
-| ------------------ | ------ | -------------------- | ----------------------------------------------------- |
-| `datas`            | array  | []                   | The data to display in the table.                     |
-| `arrayHeader`      | array  | []                   | The table headers.                                    |
-| `entriesArray`     | array  | [10, 25, 50, 100]    | (Optional) Number of entries to display in 1 page.    |
-| `fontUrl`          | string | adress               | (Optional) URL of the font to use.                    |
-| `fontSetting`      | string | 'Roboto, sans-serif' | (Optional) Font style configuration                   |
-| `fontSizeText`     | string | '16px'               | (Optional) Font size of the array                     |
-| `fontWeightText`   | string | '500'                | (Optional) Font weight of the array                   |
-| `fontColorText`    | string | '#000000'            | (Optional) Font color of the array                    |
-| `fontSizeThead`    | string | '17px'               | (Optional) Font size for the table headers.           |
-| `fontWeightThead`  | string | '500'                | (Optional) Font weight for the table headers.         |
-| `fontColorThead`   | string | '#ffffff'            | (Optional) Font color for the table headers.          |
-| `theadColor`       | string | '#72d683'            | (Optional) Background color for the table headers.    |
-| `firstFieldColor`  | string | '#ffffff'            | (Optional) Background color for odd rows.             |
-| `secondFieldColor` | string | '#c2fbcc'            | (Optional) Background color for even rows.            |
-| `pagingColor`      | string | '#72d683'            | (Optional) Background color of the pagination button. |
-| `checkedBtn`       | string | '#5cc36c'            | (Optional) Color of the selected button.              |
-| `fontSizePaging`   | string | '16px'               | (Optional) Font size of the pagination button.        |
-| `fontWeightPaging` | string | '500'                | (Optional) Font weight of the pagination button.      |
-| `fontColorPaging`  | string | '#ffffff'            | (Optional) Font color of the pagination button.       |
-| `arrayWidth`       | string | '90%'                | (Optional) Width of the table.                        |
-| `tdPadding`        | string | '6px 8px'            | (Optional) Padding inside the table cells.            |
-| `entriesInput`     | string | '100px'              | (Optional) Width of the number of entries dropdown.   |
-| `searchInput`      | string | '200px'              | (Optional) Width of the search input field.           |
+| Name                 | Type   | Default              | Description                                           |
+| -------------------- | ------ | -------------------- | ----------------------------------------------------- |
+| **datas**            | array  | []                   | The data to display in the table.                     |
+| **arrayHeader**      | array  | []                   | The table headers.                                    |
+| **entriesArray**     | array  | [10, 25, 50, 100]    | (Optional) Number of entries to display in 1 page.    |
+| **fontUrl**          | string | adress               | (Optional) URL of the font to use.                    |
+| **fontSetting**      | string | 'Roboto, sans-serif' | (Optional) Font style configuration                   |
+| **fontSizeText**     | string | '16px'               | (Optional) Font size of the array                     |
+| **fontWeightText**   | string | '500'                | (Optional) Font weight of the array                   |
+| **fontColorText**    | string | '#000000'            | (Optional) Font color of the array                    |
+| **fontSizeThead**    | string | '17px'               | (Optional) Font size for the table headers.           |
+| **fontWeightThead**  | string | '500'                | (Optional) Font weight for the table headers.         |
+| **fontColorThead**   | string | '#ffffff'            | (Optional) Font color for the table headers.          |
+| **theadColor**       | string | '#72d683'            | (Optional) Background color for the table headers.    |
+| **firstFieldColor**  | string | '#ffffff'            | (Optional) Background color for odd rows.             |
+| **secondFieldColor** | string | '#c2fbcc'            | (Optional) Background color for even rows.            |
+| **pagingColor**      | string | '#72d683'            | (Optional) Background color of the pagination button. |
+| **checkedBtn**       | string | '#5cc36c'            | (Optional) Color of the selected button.              |
+| **fontSizePaging**   | string | '16px'               | (Optional) Font size of the pagination button.        |
+| **fontWeightPaging** | string | '500'                | (Optional) Font weight of the pagination button.      |
+| **fontColorPaging**  | string | '#ffffff'            | (Optional) Font color of the pagination button.       |
+| **arrayWidth**       | string | '90%'                | (Optional) Width of the table.                        |
+| **tdPadding**        | string | '6px 8px'            | (Optional) Padding inside the table cells.            |
+| **entriesInput**     | string | '100px'              | (Optional) Width of the number of entries dropdown.   |
+| **searchInput**      | string | '200px'              | (Optional) Width of the search input field.           |
 
-The prop `fontUrl` should has an adress like this="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
-The prop `fontSetting` should match with the fontUrl adress : 'Roboto, sans-serif'
+- The prop **fontUrl** should has an adress like this="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap"
+- The prop **fontSetting** should match with the fontUrl adress : 'Rubik, sans-serif'
 
 ## Dependencies
 
