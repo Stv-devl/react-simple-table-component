@@ -88,7 +88,6 @@ const Table = ({
 
   return (
     <div style={style} className={styles.tableContainer}>
-      <p className={styles.tableTitle}>Current Employees :</p>
       <div className={styles.tableHeader}>
         <Entries
           filterTools={filterTools}
