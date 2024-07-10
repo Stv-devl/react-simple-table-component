@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import FilterTopOrUp from "../filterTopOrUp/FilterTopOrUp";
-import styles from "../../styles/index.module.scss";
+import React, { useState } from 'react';
+import FilterTopOrUp from '../filterTopOrUp/FilterTopOrUp';
+import styles from '../../styles/index.module.scss';
 
 /**
  * List component
@@ -24,17 +24,18 @@ const List = ({
   firstFieldColor,
   secondFieldColor,
   tdPadding,
+  thPadding,
 }) => {
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(null);
 
   const style = {
-    "--theadcolor": theadBackgroundColor,
-    "--firstfieldcolor": firstFieldColor,
-    "--secondfieldcolor": secondFieldColor,
-    "--fontSizeThead": fontSizeThead,
-    "--fontWeightThead": fontWeightThead,
-    "--fontColorThead": fontColorThead,
-    "--tdPadding": tdPadding,
+    '--theadcolor': theadBackgroundColor,
+    '--firstfieldcolor': firstFieldColor,
+    '--secondfieldcolor': secondFieldColor,
+    '--fontSizeThead': fontSizeThead,
+    '--fontWeightThead': fontWeightThead,
+    '--fontColorThead': fontColorThead,
+    '--tdPadding': tdPadding ? `${tdPadding.vh}px ${tdPadding.h}px` : '6px 8px',
   };
 
   /**

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from 'react';
 
 /**
  * Custom hook for managing table filters, search, and pagination.
@@ -13,9 +13,10 @@ const useManageFilter = ({ datas, currentPage, setCurrentPage }) => {
     updownselected: null,
     updown: null,
     header: null,
-    searchbar: "",
+    searchbar: '',
     entries: 10,
   });
+
   //set the number of pages
   const [pageNumber, setPageNumber] = useState(
     Math.ceil(datas.length / filterTools.entries)

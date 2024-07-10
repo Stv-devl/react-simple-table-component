@@ -1,16 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Entries from "./component/entries/Entries";
-import List from "./component/list/List";
-import Paging from "./component/paging/Paging";
-import Search from "./component/search/Search";
-import ShowEntries from "./component/showentries/ShowEntries";
-import useManageFilter from "./hook/useManageFilter";
-import styles from "./styles/index.module.scss";
+import React, { useCallback, useEffect, useState } from 'react';
+import Entries from './component/entries/Entries';
+import List from './component/list/List';
+import Paging from './component/paging/Paging';
+import Search from './component/search/Search';
+import ShowEntries from './component/showentries/ShowEntries';
+import useManageFilter from './hook/useManageFilter';
+import styles from './styles/index.module.scss';
 
 /**
  * Table component
  * Renders a table with pagination, search, and filter functionalities.
- * @param {Object[]} datas - The data to be displayed in the table.
+ * @param {Object[]} props,  - The props to be displayed in the table.
  * @param {Object} arrayHeader - The header for the table columns.
  * @returns {JSX.Element} - The Table component.
  */
@@ -51,10 +51,10 @@ const Table = ({
 
   // Get font link from user
   useEffect(() => {
-    if (typeof document !== "undefined" && fontUrl) {
-      const link = document.createElement("link");
+    if (fontUrl) {
+      const link = document.createElement('link');
       link.href = fontUrl;
-      link.rel = "stylesheet";
+      link.rel = 'stylesheet';
       document.head.appendChild(link);
       return () => {
         document.head.removeChild(link);
@@ -67,15 +67,15 @@ const Table = ({
   let middleButtons = 3;
 
   const style = {
-    "--arrayWidth": arrayWidth,
-    "--fontSetting": fontSetting,
-    "--fontSizeText": fontSizeText,
-    "--fontWeightText": fontWeightText,
-    "--fontColorText": fontColorText,
-    "--theadcolor": theadBackgroundColor,
-    "--firstfieldcolor": firstFieldColor,
-    "--secondfieldcolor": secondFieldColor,
-    "--tdPadding": tdPadding,
+    '--arrayWidth': arrayWidth,
+    '--fontSetting': fontSetting,
+    '--fontSizeText': fontSizeText,
+    '--fontWeightText': fontWeightText,
+    '--fontColorText': fontColorText,
+    '--theadcolor': theadBackgroundColor,
+    '--firstfieldcolor': firstFieldColor,
+    '--secondfieldcolor': secondFieldColor,
+    '--tdPadding': tdPadding && `${tdPadding.vh}px ${tdPadding.h}px`,
   };
 
   /**
