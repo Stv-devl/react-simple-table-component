@@ -5,9 +5,9 @@
 }
 
 .tableContainer {
+  font-family: var(--fontSetting) !important;
   font-size: var(--fontSizeText);
   font-weight: var(--fontWeightText);
-
   @media screen and (max-width: $breakup) {
     font-size: 14px;
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 /**
  * Custom hook for managing table filters, search, and pagination.
@@ -11,50 +11,59 @@ import React, { useEffect, useMemo, useState } from 'react';
 const useManageFilter = ({ datas, currentPage, setCurrentPage }) => {
   const [filterTools, setFilterTools] = useState({
     updownselected: null,
-    updown: null,
-    header: null,
+    upselected: null,
+    headername: null,
     searchbar: '',
     entries: 10,
   });
 
-  //set the number of pages
-  const [pageNumber, setPageNumber] = useState(
-    Math.ceil(datas.length / filterTools.entries)
-  );
+  //filter table with searchbar, sort with up and down,
+  const filteredData = useMemo(() => {
+    let filtered = datas;
+    if (filterTools.searchbar) {
+      filtered = filtered.filter((el) =>
+        Object.values(el).some((value) =>
+          String(value)
+            .toLowerCase()
+            .includes(filterTools.searchbar.toLowerCase())
+        )
+      );
+    }
+    if (filterTools.headername) {
+      const { headername, upselected } = filterTools;
+      const direction = upselected ? 1 : -1;
+      filtered = [...filtered].sort((a, b) => {
+        return (
+          String(a[headername]).localeCompare(String(b[headername])) * direction
+        );
+      });
+    }
+    return filtered;
+  }, [datas, filterTools]);
 
-  //set current page at 1 when whe use searchbar or change entries
+  //calculate the number of pages
+  const pageNumber = useMemo(() => {
+    return Math.ceil(filteredData.length / filterTools.entries);
+  }, [filteredData.length, filterTools.entries]);
+
+  //update current page and pagination on filter changes (go back to page 1)
   useEffect(() => {
     setCurrentPage(1);
   }, [filterTools.searchbar, filterTools.entries, setCurrentPage]);
 
-  const filteredData = useMemo(() => {
-    let filtered = datas.filter((el) =>
-      Object.values(el).some((value) =>
-        value.toLowerCase().includes(filterTools.searchbar.toLowerCase())
-      )
-    );
-    //change the number of page when we use search bar
-    setPageNumber(Math.ceil(filtered.length / filterTools.entries));
-
-    if (filterTools.header) {
-      const { header, updown } = filterTools;
-      const direction = updown ? 1 : -1;
-      filtered = filtered.sort((a, b) => {
-        return a[header].localeCompare(b[header]) * direction;
-      });
-    }
+  //data display on page
+  const displayData = useMemo(() => {
     const startIndex = (currentPage - 1) * filterTools.entries;
     const endIndex = currentPage * filterTools.entries;
-    filtered = filtered.slice(startIndex, endIndex);
+    return filteredData.slice(startIndex, endIndex);
+  }, [filteredData, filterTools.entries, currentPage]);
 
-    return filtered;
-  }, [datas, filterTools, currentPage]);
-
-  const handleChange = (updates) => {
+  //change filtertools states
+  const handleChange = useCallback((updates) => {
     setFilterTools((prev) => ({ ...prev, ...updates }));
-  };
+  }, []);
 
-  return { filterTools, filteredData, pageNumber, handleChange };
+  return { filterTools, filteredData: displayData, pageNumber, handleChange };
 };
 
 export default useManageFilter;

@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo } from 'react';
+import { getArray } from '../utils/getArray';
 
 /**
  * Custom hook for managing pagination logic.
@@ -19,11 +20,7 @@ const usePagination = ({
     let pageArray;
 
     const initialArray = [1, pageNumber];
-    const dots = "...";
-
-    const getArray = (length, startPage) => {
-      return Array.from({ length }, (_, i) => startPage + i);
-    };
+    const dots = '...';
 
     if (pageNumber <= maxButtons) {
       pageArray = Array.from({ length: pageNumber - 2 }, (_, i) => i + 2);

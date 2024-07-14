@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import FilterTopOrUp from '../filterTopOrUp/FilterTopOrUp';
 import styles from '../../styles/index.module.scss';
 
@@ -24,7 +24,6 @@ const List = ({
   firstFieldColor,
   secondFieldColor,
   tdPadding,
-  thPadding,
 }) => {
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(null);
 
@@ -42,18 +41,21 @@ const List = ({
    * Handles selection of a column for sorting.
    * @param {number} index - The index of the selected column.
    */
-  const handleSelectFilter = (index) => {
-    if (selectedFilterIndex === index) {
-      handleChange({ updown: !filterTools.updown });
-    } else {
-      setSelectedFilterIndex(index);
-      handleChange({
-        updownselected: true,
-        updown: true,
-        header: arrayHeader.map((header) => header.name)[index],
-      });
-    }
-  };
+  const handleSelectFilter = useCallback(
+    (index) => {
+      if (selectedFilterIndex === index) {
+        handleChange({ upselected: !filterTools.upselected });
+      } else {
+        setSelectedFilterIndex(index);
+        handleChange({
+          updownselected: true,
+          upselected: true,
+          headername: arrayHeader.map((header) => header.name)[index],
+        });
+      }
+    },
+    [selectedFilterIndex, filterTools, handleChange, arrayHeader]
+  );
 
   return (
     <table>
@@ -65,7 +67,7 @@ const List = ({
                 <p>{item.label}</p>
                 <FilterTopOrUp
                   isSelected={selectedFilterIndex === index}
-                  upDownValue={filterTools.updown}
+                  upselected={filterTools.upselected}
                   onSelect={handleSelectFilter}
                   index={index}
                 />

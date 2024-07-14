@@ -1,7 +1,7 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
-import styles from "../../styles/index.module.scss";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
+import styles from '../../styles/index.module.scss';
 
 /**
  * FilterTopOrUp component
@@ -13,15 +13,13 @@ import styles from "../../styles/index.module.scss";
  * @returns {JSX.Element} - The FilterTopOrUp component.
  */
 
-const FilterTopOrUp = ({ isSelected, upDownValue, onSelect, index }) => {
-  const handleClick = () => {
-    onSelect(index);
-  };
-
+const FilterTopOrUp = ({ isSelected, upselected, onSelect, index }) => {
+  // If isSelected is true and upselected is true, we display the up icon, else we display the down icon.
+  // If isSelected is false, we display both icons.
   return (
-    <div className={styles.iconefilter} onClick={handleClick}>
+    <div className={styles.iconefilter} onClick={() => onSelect(index)}>
       {isSelected ? (
-        upDownValue ? (
+        upselected ? (
           <FontAwesomeIcon icon={faSortUp} />
         ) : (
           <FontAwesomeIcon icon={faSortDown} />
@@ -35,5 +33,4 @@ const FilterTopOrUp = ({ isSelected, upDownValue, onSelect, index }) => {
     </div>
   );
 };
-
 export default FilterTopOrUp;

@@ -1,6 +1,6 @@
-import React from "react";
-import usePagination from "../../hook/usePagination";
-import styles from "../../styles/index.module.scss";
+import React from 'react';
+import usePagination from '../../hook/usePagination';
+import styles from '../../styles/index.module.scss';
 
 /**
  * Paging component
@@ -33,11 +33,11 @@ const Paging = ({
   });
 
   const style = {
-    "--pagingcolor": pagingColor,
-    "--checkedbtn": checkedBtn,
-    "--fontSizePaging": fontSizePaging,
-    "--fontColorPaging": fontColorPaging,
-    "--fontWeightPaging": fontWeightPaging,
+    '--pagingcolor': pagingColor,
+    '--checkedbtn': checkedBtn,
+    '--fontSizePaging': fontSizePaging,
+    '--fontColorPaging': fontColorPaging,
+    '--fontWeightPaging': fontWeightPaging,
   };
   return (
     <div style={style} className={styles.pagingcontainer}>
@@ -54,10 +54,10 @@ const Paging = ({
           ? pagination.map((page, index) => (
               <button
                 className={`${styles.btnpaging} ${
-                  page === currentPage ? styles.active : ""
+                  page === currentPage ? styles.active : ''
                 }`}
                 key={index}
-                disabled={page === "..." || page === currentPage}
+                disabled={page === '...' || page === currentPage}
                 onClick={(e) => changePage(parseInt(e.target.textContent))}
               >
                 {page}
